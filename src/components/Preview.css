@@ -1,0 +1,80 @@
+.bold {
+    font-weight: 700; 
+}
+
+#preview-container {
+    width: 50vw; 
+    background-color: white;
+}
+
+#preview-container h2 {
+    color: black;
+    padding: 0; 
+}
+
+#my-name {
+    width: 200px; 
+    border-radius: 15px 0  0 15px; 
+    background-color: rgba(255, 255, 255, 0.749);  
+    padding-left: 15px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+}
+
+#my-name p {
+    font-size: 15px;
+    margin: 0; 
+}
+
+@media (max-width: 900px) {
+    #my-name {
+        width: 100px; 
+    }
+    #my-name p {
+        font-size: 10px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+}
+
+#preview { 
+    background-image: url("./images/preview-background.png");
+    background-size: cover;  
+    box-sizing: border-box;
+    height: calc(100% - 60px);
+    overflow-y: scroll;
+    padding: 15px 30px;
+    font-family: monospace;  
+    outline: none; 
+}
+
+img{
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td{
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+pre, code { 
+    background-color: #373d49; 
+    color: white;
+}
+
+blockquote {
+    font-size: 12px;
+    color: #373d49; 
+    font-family: sans-serif;
+    border-left: 5px solid #373d49;
+    padding-left: 10px;
+}

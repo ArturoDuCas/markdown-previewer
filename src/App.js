@@ -1,25 +1,52 @@
-import logo from './logo.svg';
 import './App.css';
+import * as ReactRedux from 'react-redux';
+import React from "react";
+import {Editor} from "./components/Editor";
+import {Preview} from "./components/Preview";
+import {write, store} from "./store";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props); 
+  }
+  render () {
+    return (
+      <div className="App">
+      <Editor write={this.props.writeInStore} />
+      <Preview storedData={this.props.Data}/>
+      </div>
+    );
+  }
 }
 
-export default App;
+// Connect with redux 
+const Provider = ReactRedux.Provider; 
+const connect = ReactRedux.connect; 
+
+const mapStateToProps = (state) => {
+  return {
+    Data: state
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    writeInStore: (_input => {
+      dispatch(write(_input)); 
+    })
+  };
+} 
+
+const Container = connect(mapStateToProps, mapDispatchToProps)(App); 
+
+class AppWrapper extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Container />
+      </Provider>
+    ); 
+  }
+};
+
+export default AppWrapper;

@@ -1,0 +1,38 @@
+#editor-container {
+    width: 50vw; 
+    background-color: #373d49;
+}
+
+#delete-all {
+    border: none;
+    border-radius: 20%;
+    font-family: "Poppins", sans-serif;
+    height: 40px; 
+    margin-right: 10px;
+}
+
+@media (max-width: 900px) {
+    #delete-all {
+        font-size: 10px; 
+        height: auto;
+    }
+    h2 {
+        font-size: 20px;
+    }
+}
+
+#editor-container h2 {
+    color: white;
+}
+
+
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 25px 15px;    
+    height: calc(100% - 58px);
+    resize:none; 
+    outline: none; 
+    background-color: #f0f0f0; 
+    font-size: 16px;
+}
